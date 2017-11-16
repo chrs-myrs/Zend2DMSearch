@@ -9,13 +9,32 @@
 
 namespace Application\Controller;
 
+use Application\Model\SearchAgent;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+    const ITEM_LIMIT = 12;
+
     public function indexAction()
     {
         return new ViewModel();
+    }
+
+    public function searchAction() {
+        $query = $this->params()->fromRoute('query');
+        if(!$query) $this->redirect()->toRoute('search', array('query' => $this->getRequest()->getQuery('q')));
+        $page = $this->params()->fromRoute('page');
+        //if(!$query) $this->redirect()->toRoute('home');
+
+        $agent = new SearchAgent();
+        $results = $agent->query($query, $page, self::ITEM_LIMIT);
+
+        $view = new ViewModel();
+        $view ->setVariable('query', $query);
+        $view ->setVariable('results', $results);
+
+        return $view;
     }
 }

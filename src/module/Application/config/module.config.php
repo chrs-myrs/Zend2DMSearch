@@ -20,13 +20,19 @@ return array(
                     ),
                 ),
             ),
-            'testservice' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+            'search' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/service/test',
+                    'route'    => '/search[/:query][/:page]',
+                    'constraints' => array(
+                        'query' => '[a-zA-Z0-9 ]+',
+                        'page' => '[0-9]+'
+                    ),
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Service',
-                        'action'     => 'test',
+                        'controller' => 'Application\Controller\Index',
+                        'action'     => 'search',
+                        'query' => null,
+                        'page' => 1
                     ),
                 ),
             ),

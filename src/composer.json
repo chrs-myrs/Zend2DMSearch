@@ -10,6 +10,7 @@
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.4.*",
-        "dailymotion/sdk": "1.6.5"
+        "dailymotion/sdk": "1.6.5",
+        "phpunit/phpunit": "4.7.x-dev"
     }
 }
