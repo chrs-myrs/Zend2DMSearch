@@ -80,5 +80,8 @@ div.container a.brand {
 }
 
 .thumbnail {
-    height: 220px;
+    height: 265px;
+}
+.thumbnail img {
+    height: 156px !important;
 }

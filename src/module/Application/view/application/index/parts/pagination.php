@@ -1,6 +1,6 @@
 <ul class="pagination">
     <?php
-        /** @var \Application\Model\SearchResults $results */
+        /** @var \Application\Model\SearchResultsInterface $results */
     for ($i = 1; $i <= $results->getPage(); $i++) { ?>
     <li <?= ($i == $results->getPage() ? 'class="active"' : '') ?>><a href="<?= $this->url('search', array('query'=>$query, 'page'=>$i)) ?>"><?= $i ?></a></li>
     <?php } ?>

@@ -5,7 +5,8 @@
 </div>
 
 <?php
-/** @var \Application\Model\SearchResults $results */
+/** @var \Application\Model\SearchResultsInterface $results */
+/** @var string $query */
 ?>
 
 <div class="row">
@@ -29,6 +30,8 @@
 					        </a>
 
 					        <div class="caption">
+						        <p>Channel: <?= $result['channel'] ?></p>
+						        <p>Owner: <?= $result['owner'] ?></p>
 					        </div>
 				        </div>
 			        </div>

@@ -12,10 +12,9 @@ class PhpTaskTest extends TestCase
 {
     public function checkApi()
     {
-        $agent = new \Application\Model\SearchAgent();
+        $agent = new \Application\Model\DailymotionSearchAgentInterface();
         $results = $agent->query('test');
         return count($results) == 10;
     }
-
 }
 ?>

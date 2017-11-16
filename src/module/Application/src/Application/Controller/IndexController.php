@@ -9,7 +9,7 @@
 
 namespace Application\Controller;
 
-use Application\Model\SearchAgent;
+use Application\Model\DailymotionSearchAgentInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -28,7 +28,7 @@ class IndexController extends AbstractActionController
         $page = $this->params()->fromRoute('page');
         //if(!$query) $this->redirect()->toRoute('home');
 
-        $agent = new SearchAgent();
+        $agent = new DailymotionSearchAgentInterface();
         $results = $agent->query($query, $page, self::ITEM_LIMIT);
 
         $view = new ViewModel();

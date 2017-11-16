@@ -9,7 +9,7 @@
 namespace Application\Model;
 
 
-class SearchResults implements \IteratorAggregate
+class DailymotionSearchResults implements SearchResultsInterface, \IteratorAggregate
 {
     private $page, $limit, $explicit, $total, $has_more;
     /** @var array[] $list */
@@ -17,6 +17,7 @@ class SearchResults implements \IteratorAggregate
 
     /**
      * SearchResults constructor.
+     * @param $raw_data array
      */
     public function __construct(array $raw_data)
     {
